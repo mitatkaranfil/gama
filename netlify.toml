@@ -1,8 +1,10 @@
 [build]
+  base = "api"
   command = "composer install && php artisan key:generate && php artisan migrate && php artisan storage:link && php artisan serve --port=$PORT --host=0.0.0.0"
-  publish = "public"
+  publish = "api/public"
 
 [dev]
+  base = "api"
   command = "composer install && php artisan serve --port=$PORT --host=0.0.0.0"
   port = 5173
 
