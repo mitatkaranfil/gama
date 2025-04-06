@@ -1,12 +1,12 @@
 [build]
-  command = "npm run build"
-  publish = "dist"
+  command = "composer install && php artisan key:generate && php artisan migrate && php artisan storage:link && php artisan serve --port=$PORT --host=0.0.0.0"
+  publish = "public"
 
 [dev]
-  command = "npm run dev"
+  command = "composer install && php artisan serve --port=$PORT --host=0.0.0.0"
   port = 5173
 
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/index.php"
   status = 200
